@@ -7,3 +7,6 @@ run-dist: # запуск исходника приложения
 
 install: # установка приложения
 	./gradlew installDist
+
+lint: # проверка кода
+	./gradlew checkstyleTest
