@@ -7,4 +7,5 @@
 Game "Even" https://asciinema.org/a/PkOcO1jpHusUZtQGZx3qzw5KL \
 Game "Calc" https://asciinema.org/a/l80bxxb77pKiGT79w5g1TTiM4 \
 Game "GCD" https://asciinema.org/a/ZvmN86wqqNGYJ6l2zxygdzAtD \
-Game "Progression" https://asciinema.org/a/0UGRLJF88weXI6B8vVNJcLbyJ
+Game "Progression" https://asciinema.org/a/0UGRLJF88weXI6B8vVNJcLbyJ \
+Game "Prime" https://asciinema.org/a/qlQCLDYewcVI8gteUMkFV5897
