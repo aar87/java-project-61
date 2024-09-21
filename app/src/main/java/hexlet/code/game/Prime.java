@@ -2,8 +2,10 @@ package hexlet.code.game;
 
 import hexlet.code.Cli;
 
-public class Prime implements Game {
-    protected final String YES = "yes";
+public final class Prime implements Game {
+    private static final String yes = "yes";
+    private static final int gameCode = 6;
+    private static final int maxNumber = 100;
 
     @Override
     public String name() {
@@ -12,7 +14,7 @@ public class Prime implements Game {
 
     @Override
     public int code() {
-        return 6;
+        return gameCode;
     }
 
     @Override
@@ -25,14 +27,13 @@ public class Prime implements Game {
         Cli.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 
-
-    public boolean askQuestion() {
+    private boolean askQuestion() {
         boolean correctAnswer = getQuestion();
 
         Cli.print("Your answer: ");
 
         String answer = Cli.getString();
-        boolean answerValue = answer.equals(YES);
+        boolean answerValue = answer.equals(yes);
 
         if (correctAnswer == answerValue) {
             Cli.println("Correct!");
@@ -43,7 +44,7 @@ public class Prime implements Game {
         return false;
     }
 
-    public boolean getQuestion() {
+    private boolean getQuestion() {
         int value = randomValue();
 
         Cli.println("Question: " + value);
@@ -51,12 +52,11 @@ public class Prime implements Game {
         return isPrime(value);
     }
 
-    int randomValue() {
-        int MAX_NUMBER = 100;
-        return (int) (Math.random() * MAX_NUMBER);
+    private int randomValue() {
+        return (int) (Math.random() * maxNumber);
     }
 
-    boolean isPrime(int a) {
+    private boolean isPrime(int a) {
         if (a == 1) {
             return false;
         }

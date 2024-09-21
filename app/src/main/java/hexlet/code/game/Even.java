@@ -2,9 +2,11 @@ package hexlet.code.game;
 
 import hexlet.code.Cli;
 
-public class Even implements Game {
-    protected final String YES = "yes";
-    protected final String NO = "no";
+public final class Even implements Game {
+    private static final String yes = "yes";
+    private static final String no = "no";
+    private static final int gameCode = 2;
+    private static final int maxNumber = 1000;
 
     @Override
     public String name() {
@@ -13,7 +15,7 @@ public class Even implements Game {
 
     @Override
     public int code() {
-        return 2;
+        return gameCode;
     }
 
     @Override
@@ -27,22 +29,21 @@ public class Even implements Game {
     }
 
     int randomValue() {
-        int MAX_NUMBER = 1000;
-        return (int) (Math.random() * MAX_NUMBER);
+        return (int) (Math.random() * maxNumber);
     }
 
-    public String getQuestion() {
+    private String getQuestion() {
         int value = randomValue();
 
         Cli.println("Question: " + value);
 
         if (isEven(value)) {
-            return YES;
+            return yes;
         }
-        return NO;
+        return no;
     }
 
-    public boolean askQuestion() {
+    private boolean askQuestion() {
         String correctAnswer = getQuestion();
 
         Cli.print("Your answer: ");
@@ -58,7 +59,7 @@ public class Even implements Game {
         return false;
     }
 
-    public boolean isEven(int value) {
+    private boolean isEven(int value) {
         return value % 2 == 0;
     }
 }

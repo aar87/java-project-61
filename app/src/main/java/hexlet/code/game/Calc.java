@@ -4,14 +4,15 @@ import hexlet.code.Cli;
 
 import java.util.Random;
 
-public class Calc implements Game {
-    protected final int CODE = 3;
+public final class Calc implements Game {
+    private static final int gameCode = 6;
+    private static final int maxNumber = 10;
 
-    private final String SUM = "+";
-    private final String SUBTRACT = "-";
-    private final String MULTIPLY = "*";
+    private final String sum = "+";
+    private final String subtract = "-";
+    private final String multiply = "*";
 
-    protected String[] MethodsArray = {SUM, SUBTRACT, MULTIPLY};
+    public String[] methodsArray = {sum, subtract, multiply};
 
     @Override
     public String name() {
@@ -20,7 +21,7 @@ public class Calc implements Game {
 
     @Override
     public int code() {
-        return CODE;
+        return gameCode;
     }
 
     @Override
@@ -47,30 +48,32 @@ public class Calc implements Game {
 
     private int calculate(int a, int b, String method) {
         switch (method) {
-            case SUM -> {
+            case sum -> {
                 return sum(a, b);
             }
-            case SUBTRACT -> {
+            case subtract -> {
                 return subtract(a, b);
             }
-            case MULTIPLY -> {
+            case multiply -> {
                 return multiply(a, b);
             }
+            default -> {
+                return 0;
+            }
         }
-        return 0;
     }
 
-    public int getQuestion() {
-        int methodIndex = new Random().nextInt(MethodsArray.length);
+    private int getQuestion() {
+        int methodIndex = new Random().nextInt(methodsArray.length);
         int leftOperand = randomValue();
         int rightOperand = randomValue();
 
-        Cli.println("Question: " + leftOperand + " " + MethodsArray[methodIndex] + " " + rightOperand);
+        Cli.println("Question: " + leftOperand + " " + methodsArray[methodIndex] + " " + rightOperand);
 
-        return calculate(leftOperand, rightOperand, MethodsArray[methodIndex]);
+        return calculate(leftOperand, rightOperand, methodsArray[methodIndex]);
     }
 
-    public boolean askQuestion() {
+    private boolean askQuestion() {
         int correctAnswer = getQuestion();
 
         Cli.print("Your answer: ");
@@ -85,8 +88,7 @@ public class Calc implements Game {
         return false;
     }
 
-    int randomValue() {
-        int MAX_NUMBER = 10;
-        return (int) (Math.random() * MAX_NUMBER);
+    private int randomValue() {
+        return (int) (Math.random() * maxNumber);
     }
 }

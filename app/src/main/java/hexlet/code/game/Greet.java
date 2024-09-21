@@ -1,6 +1,7 @@
 package hexlet.code.game;
 
-public class Greet implements Game {
+public final class Greet implements Game {
+    private static final int gameCode = 1;
 
     @Override
     public String name() {
@@ -9,7 +10,7 @@ public class Greet implements Game {
 
     @Override
     public int code() {
-        return 1;
+        return gameCode;
     }
 
     @Override
@@ -18,5 +19,7 @@ public class Greet implements Game {
     }
 
     @Override
-    public void printRules() {}
+    public void printRules() {
+
+    }
 }

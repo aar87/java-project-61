@@ -2,7 +2,10 @@ package hexlet.code.game;
 
 import hexlet.code.Cli;
 
-public class Gcd implements Game {
+public final class Gcd implements Game {
+    private static final int gameCode = 4;
+    private static final int maxNumber = 100;
+
     @Override
     public String name() {
         return "GCD";
@@ -10,7 +13,7 @@ public class Gcd implements Game {
 
     @Override
     public int code() {
-        return 4;
+        return gameCode;
     }
 
     @Override
@@ -23,7 +26,7 @@ public class Gcd implements Game {
         Cli.println("Find the greatest common divisor of given numbers.");
     }
 
-    public boolean askQuestion() {
+    private boolean askQuestion() {
         int correctAnswer = getQuestion();
 
         Cli.print("Your answer: ");
@@ -39,7 +42,7 @@ public class Gcd implements Game {
         return false;
     }
 
-    public int getQuestion() {
+    private int getQuestion() {
         int leftOperand = randomValue();
         int rightOperand = randomValue();
 
@@ -48,12 +51,11 @@ public class Gcd implements Game {
         return findGcd(leftOperand, rightOperand);
     }
 
-    int randomValue() {
-        int MAX_NUMBER = 100;
-        return (int) (Math.random() * MAX_NUMBER);
+    private int randomValue() {
+        return (int) (Math.random() * maxNumber);
     }
 
-    int findGcd(int a, int b) {
+    private int findGcd(int a, int b) {
         if (a == b) {
             return a;
         }

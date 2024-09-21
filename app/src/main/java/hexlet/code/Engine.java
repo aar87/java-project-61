@@ -4,10 +4,10 @@ import hexlet.code.game.Exit;
 import hexlet.code.game.Game;
 import hexlet.code.game.Greet;
 
-public class Engine {
+public final class Engine {
     private String player;
-
-    public Game game;
+    private final Game game;
+    private static final int rounds = 3;
 
     public Engine(Game gameProvided) {
         this.game = gameProvided;
@@ -46,7 +46,6 @@ public class Engine {
 
     public void gameLoop() {
         int correct = 0;
-        int rounds = 3;
 
         this.game.printRules();
 

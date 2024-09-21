@@ -2,8 +2,9 @@ package hexlet.code;
 
 import hexlet.code.game.Game;
 
-public class Executor {
-    public Game[] games;
+public final class Executor {
+    private final Game[] games;
+
     public Executor(Game[] gamesProvided) {
         this.games = gamesProvided;
     }
@@ -14,7 +15,7 @@ public class Executor {
         }
     }
 
-    protected Game selectGame() {
+    public Game selectGame() {
         Cli.println("Please enter the game number and press Enter.");
         gamesInfo();
         Cli.print("Your choice: ");

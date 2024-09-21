@@ -2,10 +2,10 @@ package hexlet.code.game;
 
 import hexlet.code.Cli;
 
-public class Progression implements Game {
-    final int MIN_PROGRESSION_LENGTH = 5;
-    final int MAX_PROGRESSION_LENGTH = 10;
-    final int MAX_INIT_VALUE = 100;
+public final class Progression implements Game {
+    final int minProgressionLength = 5;
+    final int maxProgressionLength = 10;
+    final int maxInitValue = 100;
 
     @Override
     public String name() {
@@ -27,7 +27,7 @@ public class Progression implements Game {
         Cli.println("What number is missing in the progression?");
     }
 
-    public boolean askQuestion() {
+    private boolean askQuestion() {
         int correctAnswer = getQuestion();
 
         Cli.print("Your answer: ");
@@ -43,11 +43,11 @@ public class Progression implements Game {
         return false;
     }
 
-    public int getQuestion() {
-        int length = randomValue(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
-        int randomIndex = randomValue(MIN_PROGRESSION_LENGTH, length);
-        int currentValue = randomValue(0, MAX_INIT_VALUE);
-        int step = randomValue(0, MAX_PROGRESSION_LENGTH);
+    private int getQuestion() {
+        int length = randomValue(minProgressionLength, maxProgressionLength);
+        int randomIndex = randomValue(minProgressionLength, length);
+        int currentValue = randomValue(0, maxInitValue);
+        int step = randomValue(0, maxProgressionLength);
         int answer = 0;
 
         StringBuilder question = new StringBuilder();
@@ -68,7 +68,7 @@ public class Progression implements Game {
         return answer;
     }
 
-    int randomValue(int min, int max) {
+    private int randomValue(int min, int max) {
         int value = (int) (Math.random() * max);
         return Math.max(value, min);
     }
