@@ -3,8 +3,8 @@ package hexlet.code.game;
 import hexlet.code.Cli;
 
 public final class Gcd implements Game {
-    private static final int gameCode = 4;
-    private static final int maxNumber = 100;
+    private static final int GAME_CODE = 4;
+    private static final int MAX_NUMBER = 100;
 
     @Override
     public String name() {
@@ -13,7 +13,7 @@ public final class Gcd implements Game {
 
     @Override
     public int code() {
-        return gameCode;
+        return GAME_CODE;
     }
 
     @Override
@@ -52,7 +52,7 @@ public final class Gcd implements Game {
     }
 
     private int randomValue() {
-        return (int) (Math.random() * maxNumber);
+        return (int) (Math.random() * MAX_NUMBER);
     }
 
     private int findGcd(int a, int b) {

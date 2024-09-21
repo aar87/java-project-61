@@ -3,9 +3,11 @@ package hexlet.code.game;
 import hexlet.code.Cli;
 
 public final class Progression implements Game {
-    final int minProgressionLength = 5;
-    final int maxProgressionLength = 10;
-    final int maxInitValue = 100;
+    private static final int GAME_CODE = 5;
+
+    private final static int MIN_PROGRESSION_LENGTH = 5;
+    private final static int MAX_PROGRESSION_LENGTH = 10;
+    private final static int MAX_INIT_VALUE = 100;
 
     @Override
     public String name() {
@@ -14,7 +16,7 @@ public final class Progression implements Game {
 
     @Override
     public int code() {
-        return 5;
+        return GAME_CODE;
     }
 
     @Override
@@ -44,10 +46,10 @@ public final class Progression implements Game {
     }
 
     private int getQuestion() {
-        int length = randomValue(minProgressionLength, maxProgressionLength);
-        int randomIndex = randomValue(minProgressionLength, length);
-        int currentValue = randomValue(0, maxInitValue);
-        int step = randomValue(0, maxProgressionLength);
+        int length = randomValue(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
+        int randomIndex = randomValue(MIN_PROGRESSION_LENGTH, length);
+        int currentValue = randomValue(0, MAX_INIT_VALUE);
+        int step = randomValue(0, MAX_PROGRESSION_LENGTH);
         int answer = 0;
 
         StringBuilder question = new StringBuilder();

@@ -5,14 +5,14 @@ import hexlet.code.Cli;
 import java.util.Random;
 
 public final class Calc implements Game {
-    private static final int gameCode = 3;
-    private static final int maxNumber = 10;
+    private static final int GAME_CODE = 3;
+    private static final int MAX_NUMBER = 10;
 
     private final String sum = "+";
     private final String subtract = "-";
     private final String multiply = "*";
 
-    public String[] methodsArray = {sum, subtract, multiply};
+    private final String[] methodsArray = {sum, subtract, multiply};
 
     @Override
     public String name() {
@@ -21,7 +21,7 @@ public final class Calc implements Game {
 
     @Override
     public int code() {
-        return gameCode;
+        return GAME_CODE;
     }
 
     @Override
@@ -32,6 +32,10 @@ public final class Calc implements Game {
     @Override
     public void printRules() {
         Cli.println("What is the result of the expression?");
+    }
+
+    private String[] getMethodsArray() {
+        return this.methodsArray;
     }
 
     private int sum(Integer a, Integer b) {
@@ -64,13 +68,13 @@ public final class Calc implements Game {
     }
 
     private int getQuestion() {
-        int methodIndex = new Random().nextInt(methodsArray.length);
+        int methodIndex = new Random().nextInt(getMethodsArray().length);
         int leftOperand = randomValue();
         int rightOperand = randomValue();
 
-        Cli.println("Question: " + leftOperand + " " + methodsArray[methodIndex] + " " + rightOperand);
+        Cli.println("Question: " + leftOperand + " " + getMethodsArray()[methodIndex] + " " + rightOperand);
 
-        return calculate(leftOperand, rightOperand, methodsArray[methodIndex]);
+        return calculate(leftOperand, rightOperand, getMethodsArray()[methodIndex]);
     }
 
     private boolean askQuestion() {
@@ -89,6 +93,6 @@ public final class Calc implements Game {
     }
 
     private int randomValue() {
-        return (int) (Math.random() * maxNumber);
+        return (int) (Math.random() * MAX_NUMBER);
     }
 }

@@ -7,7 +7,7 @@ import hexlet.code.game.Greet;
 public final class Engine {
     private String player;
     private final Game game;
-    private static final int rounds = 3;
+    private static final int GAME_LOOP_ROUNDS = 3;
 
     public Engine(Game gameProvided) {
         this.game = gameProvided;
@@ -49,14 +49,14 @@ public final class Engine {
 
         this.game.printRules();
 
-        while (correct < rounds) {
+        while (correct < GAME_LOOP_ROUNDS) {
             if (!this.game.play()) {
                 break;
             }
             correct++;
         }
 
-        if (correct == rounds) {
+        if (correct == GAME_LOOP_ROUNDS) {
             win();
             return;
         }

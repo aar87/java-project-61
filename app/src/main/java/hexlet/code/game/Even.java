@@ -3,10 +3,10 @@ package hexlet.code.game;
 import hexlet.code.Cli;
 
 public final class Even implements Game {
-    private static final String yes = "yes";
-    private static final String no = "no";
-    private static final int gameCode = 2;
-    private static final int maxNumber = 1000;
+    private static final String ANSWER_YES = "yes";
+    private static final String ANSWER_NO = "no";
+    private static final int GAME_CODE = 2;
+    private static final int MAX_NUMBER = 1000;
 
     @Override
     public String name() {
@@ -15,7 +15,7 @@ public final class Even implements Game {
 
     @Override
     public int code() {
-        return gameCode;
+        return GAME_CODE;
     }
 
     @Override
@@ -29,7 +29,7 @@ public final class Even implements Game {
     }
 
     int randomValue() {
-        return (int) (Math.random() * maxNumber);
+        return (int) (Math.random() * MAX_NUMBER);
     }
 
     private String getQuestion() {
@@ -38,9 +38,9 @@ public final class Even implements Game {
         Cli.println("Question: " + value);
 
         if (isEven(value)) {
-            return yes;
+            return ANSWER_YES;
         }
-        return no;
+        return ANSWER_NO;
     }
 
     private boolean askQuestion() {

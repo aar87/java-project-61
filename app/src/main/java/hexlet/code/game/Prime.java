@@ -3,9 +3,9 @@ package hexlet.code.game;
 import hexlet.code.Cli;
 
 public final class Prime implements Game {
-    private static final String yes = "yes";
-    private static final int gameCode = 6;
-    private static final int maxNumber = 100;
+    private static final String ANSWER_YES = "yes";
+    private static final int GAME_CODE = 6;
+    private static final int MAX_NUMBER = 100;
 
     @Override
     public String name() {
@@ -14,7 +14,7 @@ public final class Prime implements Game {
 
     @Override
     public int code() {
-        return gameCode;
+        return GAME_CODE;
     }
 
     @Override
@@ -33,7 +33,7 @@ public final class Prime implements Game {
         Cli.print("Your answer: ");
 
         String answer = Cli.getString();
-        boolean answerValue = answer.equals(yes);
+        boolean answerValue = answer.equals(ANSWER_YES);
 
         if (correctAnswer == answerValue) {
             Cli.println("Correct!");
@@ -53,7 +53,7 @@ public final class Prime implements Game {
     }
 
     private int randomValue() {
-        return (int) (Math.random() * maxNumber);
+        return (int) (Math.random() * MAX_NUMBER);
     }
 
     private boolean isPrime(int a) {
