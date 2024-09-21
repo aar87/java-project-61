@@ -4,5 +4,5 @@
 [![Actions Status](https://github.com/aar87/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/aar87/java-project-61/actions)
 
 ### Demo
-Game "Even" https://asciinema.org/a/PkOcO1jpHusUZtQGZx3qzw5KL
+Game "Even" https://asciinema.org/a/PkOcO1jpHusUZtQGZx3qzw5KL \
 Game "Calc" https://asciinema.org/a/l80bxxb77pKiGT79w5g1TTiM4
