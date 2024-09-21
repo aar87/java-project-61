@@ -5,9 +5,9 @@ import hexlet.code.Cli;
 public final class Progression implements Game {
     private static final int GAME_CODE = 5;
 
-    private final static int MIN_PROGRESSION_LENGTH = 5;
-    private final static int MAX_PROGRESSION_LENGTH = 10;
-    private final static int MAX_INIT_VALUE = 100;
+    private static final int MIN_PROGRESSION_LENGTH = 5;
+    private static final int MAX_PROGRESSION_LENGTH = 10;
+    private static final int MAX_INIT_VALUE = 100;
 
     @Override
     public String name() {
