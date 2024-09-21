@@ -68,7 +68,7 @@ public class Progression implements Game {
         return answer;
     }
 
-    int randomValue(int min, int max) {;
+    int randomValue(int min, int max) {
         int value = (int) (Math.random() * max);
         return Math.max(value, min);
     }
