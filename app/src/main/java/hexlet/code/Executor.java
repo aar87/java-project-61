@@ -19,7 +19,6 @@ public class Executor {
         gamesInfo();
         Cli.print("Your choice: ");
         int gameIndex = Cli.getInt();
-        Cli.println("");
 
         for (Game g : games) {
             if (g.code() == gameIndex) {
