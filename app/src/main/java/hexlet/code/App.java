@@ -4,6 +4,7 @@ import hexlet.code.game.Even;
 import hexlet.code.game.Exit;
 import hexlet.code.game.Game;
 import hexlet.code.game.Greet;
+import hexlet.code.game.Calc;
 
 public class App {
     public static void main(String[] args) {
@@ -11,10 +12,11 @@ public class App {
     }
 
     public static void run() {
-        Game[] currentActiveGames = {new Greet(), new Even(), new Exit()};
+        Game[] currentActiveGames = {new Greet(), new Even(), new Calc(), new Exit()};
         Executor executor = new Executor(currentActiveGames);
         Game currentGame = executor.selectGame();
+        Engine engine = new Engine(currentGame);
 
-        currentGame.play();
+        engine.process();
     }
 }

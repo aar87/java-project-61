@@ -1,20 +1,22 @@
 package hexlet.code.game;
 
-import hexlet.code.Cli;
-
 public class Greet implements Game {
+
+    @Override
     public String name() {
         return "Greet";
     }
 
+    @Override
     public int code() {
         return 1;
     }
 
-    public void play() {
-        Cli.println("Welcome to Brain Games!");
-        Cli.print("May I have your name? ");
-        String name = Cli.getString();
-        Cli.println("Hello, " + name + "!");
+    @Override
+    public boolean play() {
+        return false;
     }
+
+    @Override
+    public void printRules() {}
 }

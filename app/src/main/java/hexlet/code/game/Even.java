@@ -3,58 +3,27 @@ package hexlet.code.game;
 import hexlet.code.Cli;
 
 public class Even implements Game {
-    protected String playerName;
-
     protected final String YES = "yes";
     protected final String NO = "no";
-    protected final int ROUNDS = 3;
 
+    @Override
     public String name() {
         return "Even";
     }
 
+    @Override
     public int code() {
         return 2;
     }
 
-    public void play() {
-        welcome();
-        gameLoop();
+    @Override
+    public boolean play() {
+        return askQuestion();
     }
 
-    public void welcome() {
-        Cli.println("Welcome to Brain Games!");
-        Cli.print("May I have your name? ");
-        playerName = Cli.getString();
-        Cli.println("Hello, " + playerName + "!");
-    }
-
-    public void gameLoop() {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
-        int correct = 0;
-
-        while (correct < ROUNDS) {
-            if (!askQuestion()) {
-                break;
-            }
-            correct++;
-        }
-
-        if (correct == ROUNDS) {
-            win();
-            return;
-        }
-
-        loose();
-    }
-
-    private void win() {
-        Cli.println("Congratulations, " + playerName + "!");
-    }
-
-    private void loose() {
-        Cli.println("Let's try again, " + playerName + "!");
+    @Override
+    public void printRules() {
+        Cli.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
     }
 
     int randomValue() {
