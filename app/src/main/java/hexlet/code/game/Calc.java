@@ -5,7 +5,7 @@ import hexlet.code.Cli;
 import java.util.Random;
 
 public final class Calc implements Game {
-    private static final int gameCode = 6;
+    private static final int gameCode = 3;
     private static final int maxNumber = 10;
 
     private final String sum = "+";
