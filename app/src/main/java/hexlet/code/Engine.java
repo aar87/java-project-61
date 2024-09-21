@@ -14,7 +14,7 @@ public class Engine {
     }
 
     static String welcome() {
-        Cli.println("Welcome to Brain Games!");
+        Cli.println("Welcome to the Brain Games!");
         Cli.print("May I have your name? ");
         String playerName = Cli.getString();
         Cli.println("Hello, " + playerName + "!");
