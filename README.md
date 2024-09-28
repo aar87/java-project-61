@@ -3,9 +3,10 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/aar87/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/aar87/java-project-61/actions)
 
+[//]: # ()
 ### Demo
-Game "Even" https://asciinema.org/a/PkOcO1jpHusUZtQGZx3qzw5KL \
-Game "Calc" https://asciinema.org/a/l80bxxb77pKiGT79w5g1TTiM4 \
-Game "GCD" https://asciinema.org/a/ZvmN86wqqNGYJ6l2zxygdzAtD \
-Game "Progression" https://asciinema.org/a/0UGRLJF88weXI6B8vVNJcLbyJ \
-Game "Prime" https://asciinema.org/a/qlQCLDYewcVI8gteUMkFV5897
+Game "Even" [![asciicast](https://asciinema.org/a/8V0EOAMD3L0ZQLCqOSsaXJ47j.svg)](https://asciinema.org/a/8V0EOAMD3L0ZQLCqOSsaXJ47j) \
+Game "Calc" [![asciicast](https://asciinema.org/a/ktptHpCTNTV8XfnX446w7PUvz.svg)](https://asciinema.org/a/ktptHpCTNTV8XfnX446w7PUvz) \
+Game "GCD" [![asciicast](https://asciinema.org/a/P09dDnutp6NBhu0dRaJnrhgdj.svg)](https://asciinema.org/a/P09dDnutp6NBhu0dRaJnrhgdj) \
+Game "Progression" [![asciicast](https://asciinema.org/a/mLFEGmlDwhaLmBmfjl0UX9m0u.svg)](https://asciinema.org/a/mLFEGmlDwhaLmBmfjl0UX9m0u) \
+Game "Prime" [![asciicast](https://asciinema.org/a/kwciwrfgkz5f9FAQBCMBtjrvu.svg)](https://asciinema.org/a/kwciwrfgkz5f9FAQBCMBtjrvu)
