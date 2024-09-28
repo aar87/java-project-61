@@ -1,66 +1,55 @@
 package hexlet.code;
 
-import hexlet.code.game.Exit;
 import hexlet.code.game.Game;
-import hexlet.code.game.Greet;
 
-public final class Engine {
-    private String player;
+public class Engine {
     private final Game game;
-    private static final int GAME_LOOP_ROUNDS = 3;
+    private String player;
 
-    public Engine(Game gameProvided) {
-        this.game = gameProvided;
+    Engine(Game g) {
+        this.game = g;
+        this.player = "";
     }
 
-    static String welcome() {
+    protected void process() {
+        if (game.withWelcome) {
+            welcome();
+        }
+        if (game.withPlay) {
+            play();
+        }
+    }
+
+    protected void play() {
+        printRules();
+        gameLoop();
+    }
+
+    private void welcome() {
         Cli.println("Welcome to the Brain Games!");
         Cli.print("May I have your name? ");
         String playerName = Cli.getString();
         Cli.println("Hello, " + playerName + "!");
-        return playerName;
+        this.player = playerName;
     }
 
-    public void win() {
-        Cli.println("Congratulations, " + player + "!");
-    }
-    public void loose() {
-        Cli.println("Let's try again, " + player + "!");
+    private void printRules() {
+        Cli.println(game.getRules());
     }
 
-    public void process() {
-        // Выглядит неправильно, но укладывается в процессинг
-        if (this.game.code() == new Exit().code()) {
-            return;
-        }
-
-        this.player = welcome();
-
-        // Выглядит неправильно, но укладывается в процессинг
-        if (this.game.code() == new Greet().code()) {
-            return;
-        }
-
-        gameLoop();
-    }
-
-    public void gameLoop() {
-        int correct = 0;
-
-        this.game.printRules();
-
-        while (correct < GAME_LOOP_ROUNDS) {
-            if (!this.game.play()) {
-                break;
+    private void gameLoop() {
+        int currentRound = 0;
+        while (currentRound < 3) {
+            String answer = game.getQuestion();
+            Cli.print("Your answer: ");
+            String playerAnswer = Cli.getString();
+            if (!playerAnswer.equals(answer)) {
+                Cli.println("Let's try again, " + player + "!");
+                return;
             }
-            correct++;
+            currentRound++;
         }
 
-        if (correct == GAME_LOOP_ROUNDS) {
-            win();
-            return;
-        }
-
-        loose();
+        Cli.println("Congratulations, " + player + "!");
     }
 }

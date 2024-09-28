@@ -2,59 +2,8 @@ package hexlet.code.game;
 
 import hexlet.code.Cli;
 
-public final class Prime implements Game {
-    private static final String ANSWER_YES = "yes";
-    private static final int GAME_CODE = 6;
+public final class Prime implements BrainGame {
     private static final int MAX_NUMBER = 100;
-
-    @Override
-    public String name() {
-        return "Prime";
-    }
-
-    @Override
-    public int code() {
-        return GAME_CODE;
-    }
-
-    @Override
-    public boolean play() {
-        return askQuestion();
-    }
-
-    @Override
-    public void printRules() {
-        Cli.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-    }
-
-    private boolean askQuestion() {
-        boolean correctAnswer = getQuestion();
-
-        Cli.print("Your answer: ");
-
-        String answer = Cli.getString();
-        boolean answerValue = answer.equals(ANSWER_YES);
-
-        if (correctAnswer == answerValue) {
-            Cli.println("Correct!");
-            return true;
-        }
-
-        Cli.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-        return false;
-    }
-
-    private boolean getQuestion() {
-        int value = randomValue();
-
-        Cli.println("Question: " + value);
-
-        return isPrime(value);
-    }
-
-    private int randomValue() {
-        return (int) (Math.random() * MAX_NUMBER);
-    }
 
     private boolean isPrime(int a) {
         if (a == 1) {
@@ -77,5 +26,20 @@ public final class Prime implements Game {
         }
 
         return result;
+    }
+
+    @Override
+    public String getQuestion() {
+        int value = GameUtils.randomValue(MAX_NUMBER);
+        String answer;
+
+        if (isPrime(value)) {
+            answer = "yes";
+        } else {
+            answer = "no";
+        }
+
+        Cli.println("Question: " + value);
+        return answer;
     }
 }

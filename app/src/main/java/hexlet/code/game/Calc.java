@@ -4,8 +4,7 @@ import hexlet.code.Cli;
 
 import java.util.Random;
 
-public final class Calc implements Game {
-    private static final int GAME_CODE = 3;
+public final class Calc implements BrainGame {
     private static final int MAX_NUMBER = 10;
 
     private final String sum = "+";
@@ -15,23 +14,15 @@ public final class Calc implements Game {
     private final String[] methodsArray = {sum, subtract, multiply};
 
     @Override
-    public String name() {
-        return "Calc";
-    }
+    public String getQuestion() {
+        int methodIndex = new Random().nextInt(getMethodsArray().length);
+        int leftOperand = GameUtils.randomValue(MAX_NUMBER);
+        int rightOperand = GameUtils.randomValue(MAX_NUMBER);
 
-    @Override
-    public int code() {
-        return GAME_CODE;
-    }
+        String answer = String.valueOf(calculate(leftOperand, rightOperand, getMethodsArray()[methodIndex]));
 
-    @Override
-    public boolean play() {
-        return askQuestion();
-    }
-
-    @Override
-    public void printRules() {
-        Cli.println("What is the result of the expression?");
+        Cli.println("Question: " + leftOperand + " " + getMethodsArray()[methodIndex] + " " + rightOperand);
+        return answer;
     }
 
     private String[] getMethodsArray() {
@@ -65,34 +56,5 @@ public final class Calc implements Game {
                 return 0;
             }
         }
-    }
-
-    private int getQuestion() {
-        int methodIndex = new Random().nextInt(getMethodsArray().length);
-        int leftOperand = randomValue();
-        int rightOperand = randomValue();
-
-        Cli.println("Question: " + leftOperand + " " + getMethodsArray()[methodIndex] + " " + rightOperand);
-
-        return calculate(leftOperand, rightOperand, getMethodsArray()[methodIndex]);
-    }
-
-    private boolean askQuestion() {
-        int correctAnswer = getQuestion();
-
-        Cli.print("Your answer: ");
-        String answer = Cli.getString();
-
-        if (Integer.parseInt(answer) == correctAnswer) {
-            Cli.println("Correct!");
-            return true;
-        }
-
-        Cli.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-        return false;
-    }
-
-    private int randomValue() {
-        return (int) (Math.random() * MAX_NUMBER);
     }
 }
