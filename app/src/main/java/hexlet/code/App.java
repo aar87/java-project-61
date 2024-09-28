@@ -9,16 +9,16 @@ import hexlet.code.game.Prime;
 
 
 public class App {
-    private final static int LAST_INDEX = 0;
+    private static final int LAST_INDEX = 0;
 
     private static final Game[] ACTIVE_GAMES = {
-            new Game("Exit", "", null, false, false),
-            new Game("Greet", "", null, true),
-            new Game("Even", "Answer 'yes' if the number is even, otherwise answer 'no'.", new Even()),
-            new Game("Calc", "What is the result of the expression?'.", new Calc()),
-            new Game("Gcd", "Find the greatest common divisor of given numbers.", new Gcd()),
-            new Game("Progression", "What number is missing in the progression??", new Progression()),
-            new Game("Prime", "Answer 'yes' if given number is prime. Otherwise answer 'no'.", new Prime()),
+        new Game("Exit", "", null, false, false),
+        new Game("Greet", "", null, true),
+        new Game("Even", "Answer 'yes' if the number is even, otherwise answer 'no'.", new Even()),
+        new Game("Calc", "What is the result of the expression?'.", new Calc()),
+        new Game("Gcd", "Find the greatest common divisor of given numbers.", new Gcd()),
+        new Game("Progression", "What number is missing in the progression??", new Progression()),
+        new Game("Prime", "Answer 'yes' if given number is prime. Otherwise answer 'no'.", new Prime()),
     };
 
     public static void main(String[] args) {

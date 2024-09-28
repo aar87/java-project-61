@@ -2,7 +2,8 @@ package hexlet.code;
 
 import hexlet.code.game.Game;
 
-public class Engine {
+public final class Engine {
+    private static final int GAME_ROUNDS = 3;
     private final Game game;
     private String player;
 
@@ -11,16 +12,16 @@ public class Engine {
         this.player = "";
     }
 
-    protected void process() {
-        if (game.withWelcome) {
+    public void process() {
+        if (game.getWithWelcome()) {
             welcome();
         }
-        if (game.withPlay) {
+        if (game.getWithPlay()) {
             play();
         }
     }
 
-    protected void play() {
+    private void play() {
         printRules();
         gameLoop();
     }
@@ -39,7 +40,7 @@ public class Engine {
 
     private void gameLoop() {
         int currentRound = 0;
-        while (currentRound < 3) {
+        while (currentRound < GAME_ROUNDS) {
             String answer = game.getQuestion();
             Cli.print("Your answer: ");
             String playerAnswer = Cli.getString();

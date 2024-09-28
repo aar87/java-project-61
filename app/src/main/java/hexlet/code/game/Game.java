@@ -4,15 +4,15 @@ public final class Game {
     private final String name;
     private final String rules;
     private final BrainGame brainGame;
-    public final boolean withWelcome;
-    public boolean withPlay;
+    private final boolean withWelcome;
+    private final boolean withPlay;
 
-    public Game(String name, String rules, BrainGame brainGame, boolean withWelcome, boolean withPlay) {
-        this.name = name;
-        this.rules = rules;
-        this.brainGame = brainGame;
-        this.withWelcome = withWelcome;
-        this.withPlay = withPlay;
+    public Game(String gameName, String gameRules, BrainGame bGame, boolean welcome, boolean play) {
+        this.name = gameName;
+        this.rules = gameRules;
+        this.brainGame = bGame;
+        this.withWelcome = welcome;
+        this.withPlay = play;
     }
 
     public Game(String name, String rules, BrainGame brainGame, boolean withWelcome) {
@@ -23,13 +23,20 @@ public final class Game {
         this(name, rules, brainGame, true, true);
     }
 
-
     public String getName() {
         return name;
     }
 
     public String getRules() {
         return rules;
+    }
+
+    public boolean getWithWelcome() {
+        return withWelcome;
+    }
+
+    public boolean getWithPlay() {
+        return withPlay;
     }
 
     public String getQuestion() {
