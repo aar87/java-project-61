@@ -7,12 +7,13 @@ public final class Progression implements BrainGame {
     private static final int MAX_PROGRESSION_LENGTH = 10;
     private static final int MAX_INIT_VALUE = 100;
     private static final int MIN_PROGRESSION_STEP = 1;
-    private static final int MAX_PROGRESSION_STEP = 100;
+    private static final int MAX_PROGRESSION_STEP = 10;
+    private static final int MIN_RANDOM_INDEX = 0;
 
     @Override
     public String getQuestion() {
         int length = GameUtils.randomValue(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
-        int randomIndex = GameUtils.randomValue(MIN_PROGRESSION_LENGTH, length);
+        int randomIndex = GameUtils.randomValue(length, MIN_RANDOM_INDEX);
         int currentValue = GameUtils.randomValue(MAX_INIT_VALUE);
         int step = GameUtils.randomValue(MAX_PROGRESSION_STEP, MIN_PROGRESSION_STEP);
         int answer = 0;
