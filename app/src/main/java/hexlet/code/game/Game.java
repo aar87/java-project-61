@@ -15,12 +15,12 @@ public final class Game {
         this.withPlay = play;
     }
 
-    public Game(String name, String rules, BrainGame brainGame, boolean withWelcome) {
-        this(name, rules, brainGame, withWelcome, false);
+    public Game(String gameName, String gameRules, BrainGame bGame, boolean welcome) {
+        this(gameName, gameRules, bGame, welcome, false);
     }
 
-    public Game(String name, String rules, BrainGame brainGame) {
-        this(name, rules, brainGame, true, true);
+    public Game(String gameName, String gameRules, BrainGame bGame) {
+        this(gameName, gameRules, bGame, true, true);
     }
 
     public String getName() {
