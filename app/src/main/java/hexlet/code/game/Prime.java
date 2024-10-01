@@ -1,45 +1,34 @@
 package hexlet.code.game;
 
-import hexlet.code.Cli;
+import hexlet.code.Engine;
+import hexlet.code.Utils;
 
-public final class Prime implements BrainGame {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Prime {
+    private static final String GAME_INFO = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int MAX_NUMBER = 100;
 
-    private boolean isPrime(int a) {
-        if (a == 1) {
-            return false;
-        }
-
-        if (a == 2) {
-            return true;
-        }
-
-        boolean result = true;
-        int current = 2;
-
-        while (current < a) {
-            if (a % current == 0) {
-                result = false;
-                break;
-            }
-            current += 1;
-        }
-
-        return result;
+    public static void play() {
+        var gameData = getGameData();
+        Engine.process(gameData, GAME_INFO);
     }
 
-    @Override
-    public String getQuestion() {
-        int value = GameUtils.randomValue(MAX_NUMBER);
-        String answer;
+    private static List<String[]> getGameData() {
+        ArrayList<String[]> data = new ArrayList<>();
 
-        if (isPrime(value)) {
-            answer = "yes";
-        } else {
-            answer = "no";
+        for (int i = 0; i < Engine.GAME_ROUNDS; i++) {
+            String[] round = new String[Engine.GAME_ROUNDS];
+            int value = Utils.randomValue(MAX_NUMBER);
+            boolean result = Utils.isPrime(value);
+            String answer = Utils.booleanToString(result);
+
+            round[Engine.QUESTION_INDEX] = String.valueOf(value);
+            round[Engine.ANSWER_INDEX] = answer;
+            data.add(round);
         }
 
-        Cli.println("Question: " + value);
-        return answer;
+        return data;
     }
 }

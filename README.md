@@ -5,8 +5,8 @@
 
 [//]: # ()
 ### Demo
-Game "Even" [![asciicast](https://asciinema.org/a/8V0EOAMD3L0ZQLCqOSsaXJ47j.svg)](https://asciinema.org/a/8V0EOAMD3L0ZQLCqOSsaXJ47j) \
-Game "Calc" [![asciicast](https://asciinema.org/a/ktptHpCTNTV8XfnX446w7PUvz.svg)](https://asciinema.org/a/ktptHpCTNTV8XfnX446w7PUvz) \
-Game "GCD" [![asciicast](https://asciinema.org/a/P09dDnutp6NBhu0dRaJnrhgdj.svg)](https://asciinema.org/a/P09dDnutp6NBhu0dRaJnrhgdj) \
-Game "Progression" [![asciicast](https://asciinema.org/a/mLFEGmlDwhaLmBmfjl0UX9m0u.svg)](https://asciinema.org/a/mLFEGmlDwhaLmBmfjl0UX9m0u) \
-Game "Prime" [![asciicast](https://asciinema.org/a/kwciwrfgkz5f9FAQBCMBtjrvu.svg)](https://asciinema.org/a/kwciwrfgkz5f9FAQBCMBtjrvu)
+Game "Even" [![asciicast](https://asciinema.org/a/1WVMM9MbDZbgzpgZew0q7Z731.svg)](https://asciinema.org/a/1WVMM9MbDZbgzpgZew0q7Z731) \
+Game "Calc" [![asciicast](https://asciinema.org/a/n0SUpF52AxMnDakmwkRxIaGxN.svg)](https://asciinema.org/a/n0SUpF52AxMnDakmwkRxIaGxN) \
+Game "GCD" [![asciicast](https://asciinema.org/a/yAv2FF8biJsP3gk2iNcckdx4B.svg)](https://asciinema.org/a/yAv2FF8biJsP3gk2iNcckdx4B) \
+Game "Progression" [![asciicast](https://asciinema.org/a/miY1U3nPF6nqByKcqoAK9iEkL.svg)](https://asciinema.org/a/miY1U3nPF6nqByKcqoAK9iEkL) \
+Game "Prime" [![asciicast](https://asciinema.org/a/zZFF3hAAAJ1ek5EUEBeBbYeKa.svg)](https://asciinema.org/a/zZFF3hAAAJ1ek5EUEBeBbYeKa)

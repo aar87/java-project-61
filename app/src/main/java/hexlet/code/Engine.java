@@ -1,56 +1,46 @@
 package hexlet.code;
 
-import hexlet.code.game.Game;
+import java.util.List;
+import java.util.Scanner;
 
-public final class Engine {
-    private static final int GAME_ROUNDS = 3;
-    private final Game game;
-    private String player;
+public class Engine {
+    public static final int GAME_ROUNDS = 3;
+    public static final int QUESTION_INDEX = 0;
+    public static final int ANSWER_INDEX = 1;
+    private static final Scanner TEXT_SCANNER = new Scanner(System.in);
 
-    Engine(Game g) {
-        this.game = g;
-        this.player = "";
+    private static void welcome() {
+        System.out.println("\nWelcome to the Brain Games!");
     }
 
-    public void process() {
-        if (game.getWithWelcome()) {
-            welcome();
-        }
-        if (game.getWithPlay()) {
-            play();
-        }
+    private static String getPlayerName() {
+        System.out.print("May I have your name? ");
+        String playerName = TEXT_SCANNER.next();
+        System.out.println("Hello, " + playerName + "!");
+        return playerName;
     }
 
-    private void play() {
-        printRules();
-        gameLoop();
-    }
+    public static void process(List<String[]> gameData, String gameRules) {
+        welcome();
+        String player = getPlayerName();
+        System.out.println(gameRules);
 
-    private void welcome() {
-        Cli.println("Welcome to the Brain Games!");
-        Cli.print("May I have your name? ");
-        String playerName = Cli.getString();
-        Cli.println("Hello, " + playerName + "!");
-        this.player = playerName;
-    }
+        for (String[] currentRound: gameData) {
+            System.out.println("Question: " + currentRound[QUESTION_INDEX]);
+            String correctAnswer = currentRound[ANSWER_INDEX];
+            System.out.print("Your answer: ");
+            String playerAnswer = TEXT_SCANNER.next();
 
-    private void printRules() {
-        Cli.println(game.getRules());
-    }
-
-    private void gameLoop() {
-        int currentRound = 0;
-        while (currentRound < GAME_ROUNDS) {
-            String answer = game.getQuestion();
-            Cli.print("Your answer: ");
-            String playerAnswer = Cli.getString();
-            if (!playerAnswer.equals(answer)) {
-                Cli.println("Let's try again, " + player + "!");
+            if (playerAnswer.equals(correctAnswer)) {
+                System.out.println("Correct!");
+            } else {
+                System.out.println(
+                    "'" + playerAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'"
+                );
                 return;
             }
-            currentRound++;
         }
 
-        Cli.println("Congratulations, " + player + "!");
+        System.out.println("Congratulations, " + player + "!");
     }
 }

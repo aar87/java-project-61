@@ -1,60 +1,35 @@
 package hexlet.code.game;
 
-import hexlet.code.Cli;
+import hexlet.code.Engine;
+import hexlet.code.Utils;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
-public final class Calc implements BrainGame {
+public class Calc {
+    private static final String GAME_INFO = "What is the result of the expression?'.";
     private static final int MAX_NUMBER = 10;
 
-    private final String sum = "+";
-    private final String subtract = "-";
-    private final String multiply = "*";
-
-    private final String[] methodsArray = {sum, subtract, multiply};
-
-    @Override
-    public String getQuestion() {
-        int methodIndex = new Random().nextInt(getMethodsArray().length);
-        int leftOperand = GameUtils.randomValue(MAX_NUMBER);
-        int rightOperand = GameUtils.randomValue(MAX_NUMBER);
-
-        String answer = String.valueOf(calculate(leftOperand, rightOperand, getMethodsArray()[methodIndex]));
-
-        Cli.println("Question: " + leftOperand + " " + getMethodsArray()[methodIndex] + " " + rightOperand);
-        return answer;
+    public static void play() {
+        var gameData = getGameData();
+        Engine.process(gameData, GAME_INFO);
     }
 
-    private String[] getMethodsArray() {
-        return this.methodsArray;
-    }
+    private static List<String[]> getGameData() {
+        ArrayList<String[]> data = new ArrayList<>();
 
-    private int sum(Integer a, Integer b) {
-        return a + b;
-    }
+        for (int i = 0; i < Engine.GAME_ROUNDS; i++) {
+            String[] round = new String[Engine.GAME_ROUNDS];
+            int firstValue = Utils.randomValue(MAX_NUMBER);
+            int secondValue = Utils.randomValue(MAX_NUMBER);
+            String method = Utils.METHODS_ARRAY[Utils.randomValue(Utils.METHODS_ARRAY.length)];
+            int result = Utils.calculate(firstValue, secondValue, method);
 
-    private int multiply(Integer a, Integer b) {
-        return a * b;
-    }
-
-    private int subtract(Integer a, Integer b) {
-        return a - b;
-    }
-
-    private int calculate(int a, int b, String method) {
-        switch (method) {
-            case sum -> {
-                return sum(a, b);
-            }
-            case subtract -> {
-                return subtract(a, b);
-            }
-            case multiply -> {
-                return multiply(a, b);
-            }
-            default -> {
-                return 0;
-            }
+            round[Engine.QUESTION_INDEX] = firstValue + " " + method + " " + secondValue;
+            round[Engine.ANSWER_INDEX] = String.valueOf(result);
+            data.add(round);
         }
+
+        return data;
     }
 }
