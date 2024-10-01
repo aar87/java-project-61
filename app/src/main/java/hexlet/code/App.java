@@ -18,14 +18,14 @@ public class App {
 
     public static String gameMenuText() {
         return """
-            Please enter the game number and press Enter.
-            1 - Greet
-            2 - Even
-            3 - Calc
-            4 - Gcd
-            5 - Progression
-            6 - Prime
-            0 - Exit""";
+        Please enter the game number and press Enter.
+        1 - Greet
+        2 - Even
+        3 - Calc
+        4 - Gcd
+        5 - Progression
+        6 - Prime
+        0 - Exit""";
     }
 
     public static void main(String[] args) {
