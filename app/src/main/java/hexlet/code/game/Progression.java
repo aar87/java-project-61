@@ -30,23 +30,24 @@ public class Progression {
             int randomIndex = Utils.randomValue(length, MIN_RANDOM_INDEX);
             int currentValue = Utils.randomValue(MAX_INIT_VALUE);
             int step = Utils.randomValue(MAX_PROGRESSION_STEP, MIN_PROGRESSION_STEP);
-            int[] progression = Utils.progression(currentValue, step, length);
-
-            round[Engine.QUESTION_INDEX] = getHiddenArrayString(progression, randomIndex);
+            String[] progression = progression(currentValue, step, length);
             round[Engine.ANSWER_INDEX] = String.valueOf(progression[randomIndex]);
+            progression[randomIndex] = "..";
+            round[Engine.QUESTION_INDEX] = String.join(" ", progression);
             data.add(round);
         }
 
         return data;
     }
 
-    private static String getHiddenArrayString(int[] array, int index) {
-        StringBuilder result = new StringBuilder();
+    private static String[] progression(int start, int step, int length) {
+        String[] result = new String[length];
 
-        for (int i = 0; i < array.length; i++) {
-            result.append(i == index ? ".. " : array[i] + " ");
+        for (int i = 0; i <= length - 1; i++) {
+            result[i] = String.valueOf(start);
+            start += step;
         }
 
-        return result.toString();
+        return result;
     }
 }

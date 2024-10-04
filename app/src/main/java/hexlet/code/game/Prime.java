@@ -21,7 +21,7 @@ public class Prime {
         for (int i = 0; i < Engine.GAME_ROUNDS; i++) {
             String[] round = new String[Engine.GAME_ROUNDS];
             int value = Utils.randomValue(MAX_NUMBER);
-            boolean result = Utils.isPrime(value);
+            boolean result = isPrime(value);
             String answer = Utils.booleanToString(result);
 
             round[Engine.QUESTION_INDEX] = String.valueOf(value);
@@ -30,5 +30,28 @@ public class Prime {
         }
 
         return data;
+    }
+
+    private static boolean isPrime(int a) {
+        if (a == 1) {
+            return false;
+        }
+
+        if (a == 2) {
+            return true;
+        }
+
+        boolean result = true;
+        int current = 2;
+
+        while (current < a) {
+            if (a % current == 0) {
+                result = false;
+                break;
+            }
+            current += 1;
+        }
+
+        return result;
     }
 }

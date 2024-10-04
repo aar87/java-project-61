@@ -22,7 +22,7 @@ public class Even {
         for (int i = 0; i < Engine.GAME_ROUNDS; i++) {
             String[] round = new String[Engine.GAME_ROUNDS];
             int value = Utils.randomValue(MAX_NUMBER);
-            boolean isValueEven = Utils.isEven(value);
+            boolean isValueEven = isEven(value);
 
             String answer = Utils.booleanToString(isValueEven);
             round[Engine.QUESTION_INDEX] = String.valueOf(value);
@@ -31,5 +31,9 @@ public class Even {
         }
 
         return data;
+    }
+
+    private static boolean isEven(int value) {
+        return value % 2 == 0;
     }
 }

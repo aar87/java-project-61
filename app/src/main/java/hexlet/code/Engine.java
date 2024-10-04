@@ -9,10 +9,6 @@ public class Engine {
     public static final int ANSWER_INDEX = 1;
     private static final Scanner TEXT_SCANNER = new Scanner(System.in);
 
-    private static void welcome() {
-        System.out.println("\nWelcome to the Brain Games!");
-    }
-
     private static String getPlayerName() {
         System.out.print("May I have your name? ");
         String playerName = TEXT_SCANNER.next();
@@ -21,7 +17,7 @@ public class Engine {
     }
 
     public static void process(List<String[]> gameData, String gameRules) {
-        welcome();
+        System.out.println("\nWelcome to the Brain Games!");
         String player = getPlayerName();
         System.out.println(gameRules);
 
